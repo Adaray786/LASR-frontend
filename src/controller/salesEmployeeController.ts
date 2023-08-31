@@ -1,6 +1,6 @@
-import { Application ,Request, Response, request} from "express";
-import { SalesEmployee } from "../model/salesEmployee";
-const salesEmployeeService = require("../service/salesEmployeeService") 
+import type { Application ,Request, Response, request} from "express";
+import type { SalesEmployee } from "../model/salesEmployee";
+import { addSalesEmployee } from "../service/salesEmployeeService";
 
 export const salesEmployeeController = (app:Application) =>
 {
@@ -32,7 +32,7 @@ export const salesEmployeeController = (app:Application) =>
         let id: Number
 
         try {
-            id = await salesEmployeeService.addSalesEmployee(data)
+            id = await addSalesEmployee(data)
             res.redirect('/salesEmployee/'+ id);
 
         } catch (e) {

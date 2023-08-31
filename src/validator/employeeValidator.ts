@@ -1,6 +1,6 @@
 import { SalesEmployee } from "../model/salesEmployee";
 
-module.exports.validateEmployee = function (salesEmployee: SalesEmployee): string | null{
+export const validateEmployee = function (salesEmployee: SalesEmployee): string{
     if(salesEmployee.bankAccountNumber && salesEmployee.bankAccountNumber?.length > 20)
     {
         return "Bank account number is too large";
@@ -14,5 +14,5 @@ module.exports.validateEmployee = function (salesEmployee: SalesEmployee): strin
         return "Nation insurancce number is too long";
     }
 
-    return null;
+    return "";
 }

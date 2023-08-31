@@ -1,7 +1,7 @@
 import express from 'express';
 import nunjucks from 'nunjucks';
 import path from 'path';
-import { SalesEmployee } from './model/salesEmployee';
+import type { SalesEmployee } from './model/salesEmployee';
 const app = express();
 import session = require("express-session");
 import { salesEmployeeController } from "./controller/salesEmployeeController";

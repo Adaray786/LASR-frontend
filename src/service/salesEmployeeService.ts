@@ -1,11 +1,11 @@
-import { SalesEmployee } from "../model/salesEmployee";
-const employeeValidator = require("../validator/employeeValidator")
-const axios = require('axios');
+import type {SalesEmployee } from "../model/salesEmployee";
+import  {validateEmployee} from "../validator/employeeValidator";
+import axios from "axios";
 
-module.exports.addSalesEmployee = async function (salesEmployee: SalesEmployee) : Promise<SalesEmployee> {
-    const error:string = employeeValidator.validateEmployee(salesEmployee)
-
-    if(error)
+export const addSalesEmployee =  async function (salesEmployee: SalesEmployee) : Promise<Number> {
+    const error:string = validateEmployee(salesEmployee)
+    
+    if(error.length > 1)
     {
         throw new Error(error)
     }
