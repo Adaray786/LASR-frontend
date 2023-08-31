@@ -1,4 +1,4 @@
-export class DeliveryEmployee {
+export type DeliveryEmployee = {
     name?: string
     salary?: number
     bankAccountNumber?: string

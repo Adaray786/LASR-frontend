@@ -3,7 +3,7 @@ import { DeliveryEmployee } from "../model/deliveryEmployee";
 
 const deliveryEmployeeService = require('../service/deliveryEmployeeService');
 
-module.exports = function(app: Application) {
+export const deliveryEmployeeController = function(app: Application) {
     app.get('/add-deliveryEmployee-details',async (req:Request, res:Response) => {
         res.render('add-deliveryEmployee-details')
     })
@@ -14,16 +14,15 @@ module.exports = function(app: Application) {
         }
 
         req.session.deliveryEmployee["name"] = req.body.name
-
         req.session.deliveryEmployee["salary"] = req.body.salary
-
         req.session.deliveryEmployee["bankAccountNumber"] = req.body.bankAccountNumber
-        
         req.session.deliveryEmployee["nationalInsuranceNumber"] = req.body.nationalInsuranceNumber
+
+        res.redirect('/add-deliveryEmployee-confirmation')
     })
 
     app.get('/add-deliveryEmployee-confirmation', async (req:Request, res:Response) => {
-        res.render('add-deliveryEmployee-confirmation')
+        res.render('add-deliveryEmployee-confirmation', req.session.deliveryEmployee)
     })
 
     app.post('add-deliveryEmployee-confirmation', async(req:Request, res:Response) => {
@@ -36,7 +35,7 @@ module.exports = function(app: Application) {
         try {
             id = await deliveryEmployeeService.createDeliveryEmployees(data)
 
-            res.redirect('/deliveryEmployees-confirmation')
+            res.redirect('/deliveryEmployee-confirmation')
         } catch (e) {
             console.error(e);
 
