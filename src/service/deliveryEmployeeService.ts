@@ -1,10 +1,10 @@
 import axios from "axios";
 
-import { DeliveryEmployee } from "../model/deliveryEmployee";
-const deliveryEmployeeValidator = require('../validator/deliveryEmployeeValidator');
+import type { DeliveryEmployee } from "../model/deliveryEmployee";
+import { validateDeliveryEmployee } from "../validator/deliveryEmployeeValidator";
 
-export const createDeliveryEmployee = async function(deliveryEmployee: DeliveryEmployee, token: string): Promise<number> {
-    const error: string = deliveryEmployeeValidator.validateDeliveryEmployee(deliveryEmployee)
+export const createDeliveryEmployee = (deliveryEmployee: DeliveryEmployee, token: string): Promise<number> {
+    const error: string = validateDeliveryEmployee(deliveryEmployee)
 
     if (error) {
         throw new Error(error)

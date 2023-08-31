@@ -1,6 +1,6 @@
-import { DeliveryEmployee } from "../model/deliveryEmployee";
+import type { DeliveryEmployee } from "../model/deliveryEmployee";
 
-export const validateDeliveryEmployee = function (deliveryEmployee: DeliveryEmployee):string | null {
+export const validateDeliveryEmployee = (deliveryEmployee: DeliveryEmployee):string => {
     if(deliveryEmployee.name?.length == 0) {
         return "You did not enter a name";
     }
@@ -15,5 +15,5 @@ export const validateDeliveryEmployee = function (deliveryEmployee: DeliveryEmpl
     if(deliveryEmployee.salary && (deliveryEmployee.salary as number) < 0) {
         return "Your salary cannot be less than 0"
     }
-    return null
+    return ""
 }
