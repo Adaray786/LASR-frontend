@@ -14,12 +14,11 @@ export const deliveryEmployeeController = function(app: Application) {
         }
 
         req.session.deliveryEmployee["name"] = req.body.name
-
         req.session.deliveryEmployee["salary"] = req.body.salary
-
         req.session.deliveryEmployee["bankAccountNumber"] = req.body.bankAccountNumber
-        
         req.session.deliveryEmployee["nationalInsuranceNumber"] = req.body.nationalInsuranceNumber
+
+        res.redirect('add-deliverEmployee-confirmation')
     })
 
     app.get('/add-deliveryEmployee-confirmation', async (req:Request, res:Response) => {
@@ -42,6 +41,5 @@ export const deliveryEmployeeController = function(app: Application) {
 
             res.render('add-deliveryEmployee-details', req.body)
         }
-
     })
 }
