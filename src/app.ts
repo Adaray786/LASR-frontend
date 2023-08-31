@@ -5,7 +5,6 @@ import path from 'path';
 import type { DeliveryEmployee } from './model/deliveryEmployee';
 import { deliveryEmployeeController } from './controller/deliveryEmployeeController';
 import type { SalesEmployee } from './model/salesEmployee';
-import session from "express-session";
 import { authController } from './controller/authController';
 const app = express();
 import { salesEmployeeController } from "./controller/salesEmployeeController";

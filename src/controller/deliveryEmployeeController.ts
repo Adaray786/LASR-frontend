@@ -1,4 +1,4 @@
-import { Application, Request, Response } from "express";
+import type { Application, Request, Response } from "express";
 import type { DeliveryEmployee } from "../model/deliveryEmployee";
 import { createDeliveryEmployee } from "../service/deliveryEmployeeService";
 
@@ -32,7 +32,7 @@ export const deliveryEmployeeController = function(app: Application) {
         let id: Number
 
         try {
-            id = await createDeliveryEmployee(data, req.session.token)
+            id = await createDeliveryEmployee(data)
 
             res.redirect('/deliveryEmployee-confirmation')
         } catch (e) {

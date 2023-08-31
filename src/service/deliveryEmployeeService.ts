@@ -2,7 +2,7 @@ import axios from "axios";
 import type { DeliveryEmployee } from "../model/deliveryEmployee";
 import { validateDeliveryEmployee } from "../validator/deliveryEmployeeValidator";
 
-export const createDeliveryEmployee = async function(deliveryEmployee: DeliveryEmployee, token: string): Promise<number> {
+export const createDeliveryEmployee = async function(deliveryEmployee: DeliveryEmployee): Promise<number> {
     const error: string = validateDeliveryEmployee(deliveryEmployee)
 
     if (error == "") {
