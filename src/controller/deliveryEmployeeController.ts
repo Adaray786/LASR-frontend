@@ -3,7 +3,7 @@ import { DeliveryEmployee } from "../model/deliveryEmployee";
 
 const deliveryEmployeeService = require('../service/deliveryEmployeeService');
 
-module.exports = function(app: Application) {
+export const deliveryEmployeeController = function(app: Application) {
     app.get('/add-deliveryEmployee-details',async (req:Request, res:Response) => {
         res.render('add-deliveryEmployee-details')
     })
@@ -36,7 +36,7 @@ module.exports = function(app: Application) {
         try {
             id = await deliveryEmployeeService.createDeliveryEmployees(data)
 
-            res.redirect('/deliveryEmployees-confirmation')
+            res.redirect('/deliveryEmployees/' + id)
         } catch (e) {
             console.error(e);
 

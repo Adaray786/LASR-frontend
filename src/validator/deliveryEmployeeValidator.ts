@@ -1,6 +1,6 @@
 import { DeliveryEmployee } from "../model/deliveryEmployee";
 
-module.exports.validateDeliveryEmployee = function (deliveryEmployee: DeliveryEmployee):string | null {
+export const validateDeliveryEmployee = function (deliveryEmployee: DeliveryEmployee):string | null {
     if(deliveryEmployee.name?.length == 0) {
         return "You did not enter a name";
     }
@@ -12,6 +12,8 @@ module.exports.validateDeliveryEmployee = function (deliveryEmployee: DeliveryEm
     if(deliveryEmployee.nationalInsuranceNumber?.length != 9) {
         return "Your national insurance number is not the right length";
     }
-
-    return ""
+    if(deliveryEmployee.salary && (deliveryEmployee.salary as number) < 0) {
+        return "Your salary cannot be less than 0"
+    }
+    return null
 }

@@ -3,7 +3,8 @@ import nunjucks from 'nunjucks';
 import session from 'express-session';
 import path from 'path';
 import { DeliveryEmployee } from './model/deliveryEmployee';
-import exp from 'constants';
+import { deliveryEmployeeController } from './controller/deliveryEmployeeController';
+
 const app = express();
 
 const appViews = path.join(__dirname, '/views/');
@@ -38,4 +39,4 @@ app.listen(3000, ()=> {
 });
 
 
-require('./controller/deliveryEmployeeController')(app);
+deliveryEmployeeController(app)

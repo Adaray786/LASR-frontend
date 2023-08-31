@@ -1,9 +1,9 @@
 import axios from "axios";
-import e from "express";
+
 import { DeliveryEmployee } from "../model/deliveryEmployee";
 const deliveryEmployeeValidator = require('../validator/deliveryEmployeeValidator');
 
-module.exports.createDeliveryEmployee = async function(deliveryEmployee: DeliveryEmployee, token: string): Promise<number> {
+export const createDeliveryEmployee = async function(deliveryEmployee: DeliveryEmployee, token: string): Promise<number> {
     const error: string = deliveryEmployeeValidator.validateDeliveryEmployee(deliveryEmployee)
 
     if (error) {
