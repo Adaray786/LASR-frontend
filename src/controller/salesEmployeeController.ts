@@ -14,13 +14,14 @@ export const salesEmployeeController = (app:Application) =>
         }   
         req.session.salesEmployee["name"] = req.body.name
         req.session.salesEmployee["salary"] = req.body.salary
-        req.session.salesEmployee["bankAccountNumber"] = req.body.bankAccountNumbe
+        req.session.salesEmployee["bankAccountNumber"] = req.body.bankAccountNumber
         req.session.salesEmployee["nationalInsuranceNumber"] = req.body.nationalInsuranceNumber
         req.session.salesEmployee["commisionRate"] = req.body.commisionRate
+        res.redirect("/add-salesEmployee-conf");
     })
 
     app.get('/add-salesEmployee-conf', async (req:Request, res:Response) => {
-        res.render('add-salesEmployee-conf')
+        res.render('add-salesEmployee-conf', req.session.salesEmployee)
     })
 
     app.post('add-salesEmployee-conf', async(req:Request, res:Response) => {
