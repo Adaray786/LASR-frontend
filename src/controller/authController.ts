@@ -2,7 +2,7 @@ import {Request, Response, Application, response} from "express";
 import { Login } from "../model/auth";
 const authService = require("../service/authService");
 
-module.exports = function(app: Application)
+export const authController = (app: Application) =>
 {
     app.get('/login', async (req:Request, res:Response) => {
         res.render("login")
