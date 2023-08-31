@@ -10,7 +10,7 @@ export const createDeliveryEmployee = async function(deliveryEmployee: DeliveryE
     }
 
     try {
-        const response = await axios.post('http://localhost:8080/api/deliveryemployees', deliveryEmployee, { params: { token: token } })
+        const response = await axios.post('http://localhost:8080/api/deliveryemployees', deliveryEmployee)
 
         return response.data
     } catch (e) {
