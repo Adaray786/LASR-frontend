@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "npm run build && node dist/app.js",
-    "build": "npx tsc && cp -R src/views dist",
+    "start": "npx tsc && cp -R src/views dist && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
