@@ -1,7 +1,6 @@
-const express = require('express');
-const path = require('path');
-const nunjucks = require('nunjucks');
-
+import express from 'express';
+import nunjucks from 'nunjucks';
+import path from 'path';
 const app = express();
 
 const appViews = path.join(__dirname, '/views/');
