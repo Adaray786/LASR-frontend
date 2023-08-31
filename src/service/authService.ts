@@ -1,7 +1,7 @@
-import { Login } from "../model/auth";
+import type { Login } from "../model/auth";
 import axios from "axios";
 
-export const login = async function (login: Login): Promise<void> 
+export const login = async function (login: Login): Promise<string> 
 {
     try{
         const response = await axios.post("http://localhost:8080/api/login", login)

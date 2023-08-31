@@ -1,6 +1,6 @@
-import {Request, Response, Application, response} from "express";
-import { Login } from "../model/auth";
-const authService = require("../service/authService");
+import type {Request, Response, Application, response} from "express";
+import type { Login } from "../model/auth";
+import {login} from "../service/authService";
 
 export const authController = (app: Application) =>
 {
@@ -11,7 +11,8 @@ export const authController = (app: Application) =>
         let data: Login = req.body;
 
         try{
-            req.session.token = await authService.login(data)
+            req.session.token  = await login(data)
+
             res.redirect('/products') // front page url
         }
         catch(e){
