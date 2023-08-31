@@ -12,8 +12,8 @@ export const authController = (app: Application) =>
 
         try{
             req.session.token  = await login(data)
-
-            res.redirect('/products') // front page url
+            console.log(req.session)
+            res.redirect('/index') // front page url
         }
         catch(e){
             console.error(e)

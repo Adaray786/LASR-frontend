@@ -43,15 +43,21 @@ export const salesEmployeeController = (app:Application) =>
         }
     })
     app.get('/view-salesEmployee/:id', async (req:Request, res:Response) => {
+        console.log(req.session)
         let data: SalesEmployee;
         try{
             let id = Number.parseInt(req.params.id, 10)
+            console.log(id)
             if(id == 0)
             {
                 throw new Error("Failed to parse id")
             }
-            data = await getSalesEmployee(id);
-            res.render('view-salesEmployee', {salesEmployee:data})
+            console.log(req.session.token);
+            console.log(req.session)
+            if(req.session.token){
+                data = await getSalesEmployee(id, req.session.token);
+                res.render('view-salesEmployee', {salesEmployee:data})
+            }
         }
         catch(e){
             console.error(e);

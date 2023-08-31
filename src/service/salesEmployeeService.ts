@@ -19,12 +19,13 @@ export const addSalesEmployee =  async function (salesEmployee: SalesEmployee) :
         throw new Error("Could not create sales employee");
     }
 }
-export const getSalesEmployee = async function (id: number) : Promise<SalesEmployee>{
+export const getSalesEmployee = async function (id: number, token:string) : Promise<SalesEmployee>{
     try{
-        const response = await axios.get('http://localhost:8080/api/SalesEmployee/' + id)
+        console.log(token)
+        const response = await axios.get('http://localhost:8080/api/SalesEmployee/' + id, {params:{token:token}})
         return response.data
     }
     catch(e){
-        throw new Error("Could not get orders");
+        throw new Error("Failed to get sales employee");
     }
 }   
