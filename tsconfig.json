@@ -1,0 +1,13 @@
+{
+    "complilerOptions": {
+        "outDir": "./dist",
+        "target": "es5",
+        "sourceMap": true,
+        "noImplicitAny": true
+    },
+    "include": ["./**/*"],
+    "exclude": [
+        "./node_modules/**/*",
+        "./dist/**/*"
+    ]
+}
