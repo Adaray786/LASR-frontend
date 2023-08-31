@@ -48,7 +48,7 @@ export const salesEmployeeController = (app:Application) =>
         try{
             let id = Number.parseInt(req.params.id, 10)
             console.log(id)
-            if(id == 0)
+            if(id == 0 || Number.isNaN(id))
             {
                 throw new Error("Failed to parse id")
             }
