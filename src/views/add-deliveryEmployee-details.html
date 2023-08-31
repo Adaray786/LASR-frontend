@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Delivery Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Add Delivery Employee Details</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="form" class="bg-light py-5">
+            <div class="container">
+                <p>Enter Delivery Employee Details</p>
+                <form action="/add-deliveryemployee" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" value="{{name}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="salary">Salary</label>
+                        <input type="text" name="salary" id="salary" class="form-control" value="{{salary}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankAcountNumber">Bank Account Number</label>
+                        <input type="text" name="bankAcountNumber" id="nabankAcountNumberme" class="form-control" value="{{bankAcountNumber}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationalInsuranceNumber">National Insurance Number</label>
+                        <input type="text" name="nationalInsuranceNumber" id="nationalInsuranceNumber" class="form-control" value="{{nationalInsuranceNumber}}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>
