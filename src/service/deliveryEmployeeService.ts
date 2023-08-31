@@ -3,7 +3,7 @@ import axios from "axios";
 import type { DeliveryEmployee } from "../model/deliveryEmployee";
 import { validateDeliveryEmployee } from "../validator/deliveryEmployeeValidator";
 
-export const createDeliveryEmployee = (deliveryEmployee: DeliveryEmployee, token: string): Promise<number> {
+export const createDeliveryEmployee = (deliveryEmployee: DeliveryEmployee): Promise<number> => {
     const error: string = validateDeliveryEmployee(deliveryEmployee)
 
     if (error) {
@@ -11,7 +11,7 @@ export const createDeliveryEmployee = (deliveryEmployee: DeliveryEmployee, token
     }
 
     try {
-        const response = await axios.post('http://localhost:8080/api/deliveryemployees', deliveryEmployee, { params: { token: token } })
+        const response = await axios.post('http://localhost:8080/api/deliveryemployees', deliveryEmployee)
 
         return response.data
     } catch (e) {

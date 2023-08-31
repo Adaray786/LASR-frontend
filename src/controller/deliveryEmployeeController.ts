@@ -32,7 +32,7 @@ export const deliveryEmployeeController = function(app: Application) {
         let id: Number
 
         try {
-            id = await createDeliveryEmployee(data, req.session.token)
+            id = await createDeliveryEmployee(data)
 
             res.redirect('/deliveryEmployees/' + id)
         } catch (e) {
