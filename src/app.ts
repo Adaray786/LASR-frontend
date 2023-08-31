@@ -5,7 +5,6 @@ import type { SalesEmployee } from './model/salesEmployee';
 import session from "express-session";
 import { authController } from './controller/authController';
 const app = express();
-import session = require("express-session");
 import { salesEmployeeController } from "./controller/salesEmployeeController";
 const appViews = path.join(__dirname, '/views/');
 
