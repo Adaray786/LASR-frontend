@@ -16,15 +16,22 @@ const nunjucksConfig = {
     express: app
 };
 app.use(express.json())
+
 app.use(express.urlencoded({extended: true}))
-app.use(session({secret : "Not hardcoded", cookie: {maxAge:6000}}));
+
+app.use(session({secret : "NOT HARDCODED SECRET", cookie: {maxAge:6000000}, saveUninitialized: true, resave: true}));
+
 declare module "express-session"{
     interface SessionData{
-        salesEmployee: SalesEmployee
-        deliveryEmployee: DeliveryEmployee
-        token: string
+        salesEmployee: SalesEmployee;
+        deliveryEmployee: DeliveryEmployee;
+        token: string;
     }
 }
+
+app.listen(3000, () => {
+    console.log('Server listening on port 3000')
+});
 
 nunjucks.configure(appViews, nunjucksConfig);
 
