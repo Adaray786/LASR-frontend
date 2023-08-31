@@ -1,12 +1,11 @@
 import axios from "axios";
-
 import type { DeliveryEmployee } from "../model/deliveryEmployee";
 import { validateDeliveryEmployee } from "../validator/deliveryEmployeeValidator";
 
-export const createDeliveryEmployee = (deliveryEmployee: DeliveryEmployee): Promise<number> => {
+export const createDeliveryEmployee = async function(deliveryEmployee: DeliveryEmployee): Promise<number> {
     const error: string = validateDeliveryEmployee(deliveryEmployee)
 
-    if (error) {
+    if (error == "") {
         throw new Error(error)
     }
 
@@ -17,4 +16,8 @@ export const createDeliveryEmployee = (deliveryEmployee: DeliveryEmployee): Prom
     } catch (e) {
         throw new Error('Could not create delivery employee')
     }
+}
+
+export const updateDeliveryEmployee =async (deliveryEmployee:DeliveryEmployee) => {
+    
 }
