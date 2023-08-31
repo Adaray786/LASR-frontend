@@ -19,3 +19,12 @@ export const addSalesEmployee =  async function (salesEmployee: SalesEmployee) :
         throw new Error("Could not create sales employee");
     }
 }
+export const getSalesEmployee = async function (id: number) : Promise<SalesEmployee>{
+    try{
+        const response = await axios.get('http://localhost:8080/api/SalesEmployee/' + id)
+        return response.data
+    }
+    catch(e){
+        throw new Error("Could not get orders");
+    }
+}   
