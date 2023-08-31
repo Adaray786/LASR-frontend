@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Sales Employee</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="bg-dark text-livtght">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Add Sales Employee</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container mt-4">
+            <section id="form" class="bg-light py-5">
+                <div class="container">
+                   {% if errormessage %}
+                   <div class="Alert alert-danger" role="alert">
+                    {{ errormessage  }}
+                   </div>
+                   {% endif %}
+                   <form actions="/add-order-confirmation" method="post">
+                        <div class="form-group">
+                            <label for="name">Name: {{ name }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Salary: {{salary}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="bankAccountNumber">Bank account number: {{bankAccountNumber}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationalInsuranceNumber">National Insurance Number: {{nationalInsuranceNumber}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="commisionRate">Commission rate: {{commisionRate}}</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                   </form>
+            </section>
+        </main>
+    </body>
+</html>
