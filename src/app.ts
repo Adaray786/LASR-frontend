@@ -6,9 +6,10 @@ import type { DeliveryEmployee } from './model/deliveryEmployee';
 import { deliveryEmployeeController } from './controller/deliveryEmployeeController';
 import type { SalesEmployee } from './model/salesEmployee';
 import { authController } from './controller/authController';
-const app = express();
 import { salesEmployeeController } from "./controller/salesEmployeeController";
+
 const appViews = path.join(__dirname, '/views/');
+const app = express();
 
 const nunjucksConfig = {
     autoescape: true,
@@ -29,7 +30,6 @@ declare module "express-session"{
 nunjucks.configure(appViews, nunjucksConfig);
 
 app.set('view engine', 'html');
-
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // const authMiddleware = require("./middleware/auth")

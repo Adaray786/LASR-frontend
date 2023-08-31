@@ -1,6 +1,6 @@
 import type { Application ,Request, Response, request} from "express";
 import type { SalesEmployee } from "../model/salesEmployee";
-import { addSalesEmployee } from "../service/salesEmployeeService";
+import { addSalesEmployee, getSalesEmployee } from "../service/salesEmployeeService";
 
 export const salesEmployeeController = (app:Application) =>
 {
@@ -40,6 +40,27 @@ export const salesEmployeeController = (app:Application) =>
             res.locals.errormessage = (e as Error).message
             res.render('add-deliveryEmployee-details', req.body)
 
+        }
+    })
+    app.get('/view-salesEmployee/:id', async (req:Request, res:Response) => {
+        console.log(req.session)
+        let data: SalesEmployee;
+        try{
+            let id = Number.parseInt(req.params.id, 10)
+            console.log(id)
+            if(id == 0 || Number.isNaN(id))
+            {
+                throw new Error("Failed to parse id")
+            }
+            console.log(req.session.token);
+            console.log(req.session)
+            if(req.session.token){
+                data = await getSalesEmployee(id, req.session.token);
+                res.render('view-salesEmployee', {salesEmployee:data})
+            }
+        }
+        catch(e){
+            console.error(e);
         }
     })
 }
